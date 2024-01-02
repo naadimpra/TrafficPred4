@@ -35,8 +35,8 @@ plt.savefig('traffic_volume_vs_air_pollution_index.png')
 plt.close()
 
 # Explore how weather conditions impact traffic volume
-weather_columns = ['humidity', 'wind_speed', 'wind_direction', 'visibility_in_miles', 'dew_point', 'temperature', 'rain_p_h', 'snow_p_h', 'clouds_all']
-for column in weather_columns:
+numerical_columns = ['humidity', 'wind_speed', 'wind_direction', 'visibility_in_miles', 'dew_point', 'temperature', 'rain_p_h', 'snow_p_h', 'clouds_all']
+for column in numerical_columns :
     plt.figure(figsize=(10, 6))
     sns.scatterplot(x=column, y='traffic_volume', data=traffic_volume_dataset)
     plt.xlabel(column.capitalize())
@@ -46,8 +46,8 @@ for column in weather_columns:
     plt.close()
 
 # Analyze the relationship between cloud cover, weather types, weather descriptions, and traffic volume
-weather_columns = ['clouds_all', 'weather_type', 'weather_description']
-for column in weather_columns:
+categorical_columns = ['weather_type', 'weather_description']
+for column in categorical_columns:
     plt.figure(figsize=(10, 6))
     sns.barplot(x=column, y='traffic_volume', data=traffic_volume_dataset)
     plt.xlabel(column.capitalize())
